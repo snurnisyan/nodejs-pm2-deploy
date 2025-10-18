@@ -21,7 +21,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'git@github.com:snurnisyan/nodejs-pm2-deploy.git',
       path: DEPLOY_PATH,
-      'post-deploy': 'cd frontend && (export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build) && cp -R build/* /home/user/mesto-frontend/',
+      'post-deploy': 'cd frontend && (export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build) && rm -rf /home/user/mesto-frontend/ && mkdir /home/user/mesto-frontend/ && cp -R build/* /home/user/mesto-frontend/ && chmod -R 777 /home/user/mesto-frontend/',
     },
   },
 };
