@@ -23,7 +23,7 @@ module.exports = {
       repo: 'git@github.com:snurnisyan/nodejs-pm2-deploy.git',
       path: DEPLOY_PATH,
       'pre-deploy-local': `scp -i ${DEPLOY_SSH_KEY} ./.env.deploy ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source/backend/`,
-      'post-deploy': 'cd backend && source ~/.bashrc && nvm use 22 && npm i && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'cd backend && /home/user/.nvm/versions/node/v22.20.0/bin/npm i && /home/user/.nvm/versions/node/v22.20.0/bin/npm run build && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
